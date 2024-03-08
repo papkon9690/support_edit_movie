@@ -1,0 +1,45 @@
+input {
+    background-color: #f0f2f6;
+    width: 300px;
+    cursor: text;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+.drop-area {
+    --drop-area-height: 150px; 
+    height: var(--drop-area-height);
+    width: 40%;
+    border: 1px dashed;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.drop-area input[type="file"] {
+    --button-width: 50%;
+    padding: calc(var(--drop-area-height) / 2) calc( (100% - var(--button-width)) / 2 );
+    width: 50%;
+}
+
+.drop-area input[type="file"]::file-selector-button {
+    width: 100%;
+    display: block;
+    border: none;
+    color: white;
+    background: gray;
+    padding: 8px 10px;
+    margin: 0 0 5px;
+    border-radius: 2px;
+    font-size: 16px;
+}
+
+.drop-area::before {
+    content: "ファイルをドロップして\A画像を追加してください";
+    white-space: pre;
+    text-align: center;
+    position: absolute;
+    margin-top: -4em;
+}
