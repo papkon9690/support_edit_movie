@@ -63,7 +63,7 @@ def draw_telop_and_add_img(telop_text , input_img_path , output_img_path = "outp
     basic_frame_rgb_img = np.array(basic_frame_rgb_img_pil) # PIL を配列に変換
 
     # 入力画像をリサイズ
-    input_rgb_img = read_rgb_img(input_img_path) 
+    input_rgb_img: np.ndarray = read_rgb_img(input_img_path) 
     input_height , input_width = input_rgb_img.shape[0] , input_rgb_img.shape[1]
     resized_width = int( input_width * divides_line_position / input_height )
     resized_rgb_img = cv2.resize(input_rgb_img, (resized_width, divides_line_position))
