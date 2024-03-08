@@ -2,6 +2,15 @@ import numpy as np
 from PIL import ImageFont, ImageDraw, Image
 import cv2
 
+
+
+# パスの定義
+static_path = "static/"
+img_folder = static_path + "img/"
+font_file_path = static_path + "font/gothic_font/GenShinGothic-Bold.ttf"
+
+
+
 def read_rgb_img(img_path: str) -> np.ndarray:
     """ 特定のパスからRGBの画像をnp形式で取得する関数 """
     bgr_img: np.ndarray = cv2.imread(img_path)
