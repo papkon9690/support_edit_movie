@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>動画制作の補助サイト</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/btn.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/drag_drop.css') }}">
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    </head>
+
+    <body>
+        <header class="header-title">
+            <!-- <div class="header-title">--><a href="{{ url_for('add_telop') }}">動画制作の補助サイト</a><!--</div> -->
+        </header>
+        <div class="header-group">
+            <header>
+                <nav class="nav">
+                    <ul class="menu-group">
+                        <li class="menu-item"><a href="{{ url_for('add_telop') }}">画像＆テロップ追加</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <p><br><br></p>
+    </body>
+
+</html>

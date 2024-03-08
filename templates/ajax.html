@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>HOME</h1>
+    <h3>非同期フォーム</h3>
+    <input type="text" id="ajax_data_from_js">
+    <button type="submit" class="btn" onclick="send_to_python_ajax();" style="margin-top: 30px;">送信</button>
+    <div id="js_wait_btn_output"></div>
+    <p><br></p>
+    
+    <h3>出力結果</h3>
+    <!-- コピーボタン -->
+    <div class="copy-object">
+        <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+        <div class="copy-message" id="copyMessage"></div>
+    </div>
+    <!-- ajax非同期通信の処理結果 -->
+    <div id="ajax_result" class="display-text">   <!-- 長文テキストの場合 -->
+    </div>
+
+{% endblock %}

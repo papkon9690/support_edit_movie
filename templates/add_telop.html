@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>テロップと画像でフレームを生成</h1>
+
+    <form action="/" method="POST" id="ajax-result" enctype="multipart/form-data">
+        <h3>挿入するテロップを入力</h3>
+        <input type="text" name="telop_text" class="display-text">
+        
+        <h3>追加する画像をアップロード</h3>
+        <div class="drop-area">
+            <input type="file" name="img_file" accept=".jpg, .jpeg, .png">
+        </div>
+
+        <button type="submit" class="btn" onclick="OnButtonClick();" style="margin-top: 30px;">生成</button>
+    </form>
+    <div id="js_wait_btn_output"></div>
+
+    <p><br></p>
+
+    {% if output_img_path %}
+        <img src="{{ output_img_path }}" alt="">
+    {% endif %}
+
+
+
+    <p><br></p>
+    <p><br></p>
+
+{% endblock %}
