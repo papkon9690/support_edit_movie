@@ -2,14 +2,6 @@ import numpy as np
 from PIL import ImageFont, ImageDraw, Image
 import cv2
 
-# パスの定義
-static_path = "static/"
-img_folder = static_path + "img/"
-font_file_path = static_path + "font/gothic_font/GenShinGothic-Bold.ttf"
-    
-
-
-
 def read_rgb_img(img_path: str) -> np.ndarray:
     """ 特定のパスからRGBの画像をnp形式で取得する関数 """
     bgr_img: np.ndarray = cv2.imread(img_path)
@@ -22,13 +14,6 @@ def write_rgb_img(img_path: str , rgb_img: np.ndarray):
     """ np形式のRGBの画像を特定パスに保存する関数 """
     bgr_img: np.ndarray = cv2.cvtColor(rgb_img, cv2.COLOR_RGB2BGR)
     cv2.imwrite(img_path , bgr_img)
-
-
-# Youtubeフレームサイズ「1920px×1080px」
-# basic_width, basic_height = 1920, 1080
-# basic_frame_rgb_img = np.zeros((basic_height, basic_width, 3), np.uint8)
-
-
 
 def draw_telop_and_add_img(telop_text , input_img_path , output_img_path = "output.png"):
     """ 下部中央にテロップを追加し、上部中央に画像を追加する関数 """
@@ -77,23 +62,5 @@ def draw_telop_and_add_img(telop_text , input_img_path , output_img_path = "outp
     basic_frame_rgb_img[start_y:end_y, start_x:end_x, :] = resized_rgb_img
 
     write_rgb_img(output_img_path , basic_frame_rgb_img)
-
-
-
-input_img_path = img_folder + "1.png"
-
-telop_text_list = [
-    "OpenCV(オープンシーブイ)" ,
-    "ようこそ日本へ" ,
-    "活動内容としては、WEB、印刷、動画などの" ,
-]
-# 最大21文字が妥当（半角と全角で違うが、長すぎても良くないのでこのくらい）
-
-for loop in range(len(telop_text_list)):
-    telop_text = telop_text_list[loop]
-    output_img_path = img_folder + "output_" + str(loop) +".png"
-    draw_telop_and_add_img(telop_text , input_img_path , output_img_path)
-
-
 
 
